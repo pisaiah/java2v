@@ -21,3 +21,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Test output
+*.exe
+data.txt
+/*.v
+.settings/
+
+
+# 
+# Currently in development, main transpiler source hidden.
+src/
+
