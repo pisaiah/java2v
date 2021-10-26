@@ -80,3 +80,10 @@ pub fn (f File) get_parent() string {
 pub fn (f File) is_directory() bool {
     return os.is_dir(f.get_path())
 }
+
+/**
+ */
+pub fn (f File) mkdir() bool {
+    os.mkdir_all(f.get_path()) or { println('error') println(err) }
+    return true
+}

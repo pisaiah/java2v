@@ -1,0 +1,225 @@
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link id="themecss" rel="stylesheet" href="./theme-white.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>J2V | javadocs</title>
+<style>
+.mybtn,.red {min-width:69px; min-height:68px;margin:3px;font-size:2rem;max-height:68px;max-width:68px;border:1px solid black;}
+.red {background-color:red} .mybtn span {display:none}
+.e span {display:inline !important}
+.un {background-color:rgb(189,189,189)!important}
+.w3-container {padding-left:3rem}
+.w3-padding-64 {padding-left:35px;padding-right:35px;padding:74px}
+* {transition: all 100ms linear; scrollbar-color: rgb(38,57,87) rgb(46,73,115);}
+.ch {float:left;margin-left:1.5rem;margin-right:2rem}
+.padding-18 {text-align:left} .full {margin-bottom:50vh}
+h2 small,h3 small,h4 small {font-style:italic;font-size:.9rem;color:rgb(180,180,180)}
+.small {font-style:italic;font-size:.9rem;color:rgb(180,180,180)}
+
+h3,h4 {border-bottom:1px solid black;padding-bottom:4px;padding-top:1rem;font-size:1.4rem;font-weight:bold;}
+.pro {padding:1px 5px 1px 5px;border-radius:4px;font-style:small-caps;margin-right:2px;border:1px solid rgb(80,80,80)}
+.des {color:rgb(230,230,230)!important}
+
+li {padding:4px !important}
+ul {padding-left:1.8rem}
+.pack {border-bottom:1px solid black}
+.clzz {padding-left:0rem;padding-right:1.5vw !important}
+
+.arrow{ border:solid rgb(180,180,180); border-width:0 3px 3px 0; display:inline-block;padding:3px;}
+.right {transform:rotate(-45deg)}
+.w3-code {color:white;margin:1px;font-size:.8rem;}
+.point {cursor:pointer;}
+
+
+.w3-cod{font-family:Consolas,"courier new";font-size:13px}
+.w3-cod{width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #4CAF50;word-wrap:break-word}
+</style>
+
+<body>
+
+<!--Navbar-->
+<div class="w3-top" style="z-index:100">
+  <div class="w3-bar w3-theme w3-top w3-left-align">
+    <a href="#" class="w3-bar-item w3-button" style="min-width:20%;margin-right:1rem;" onclick="opn('start')">Java2V&trade; Classlib 0.0.1</a>
+    <span id="clz"></span>
+  </div>
+</div>
+
+<!--Sidebar-->
+<div class="w3-sidebar w3-light-grey w3-bar-block w3-theme-l1" style="width:20%;min-width:11rem;padding-top:3rem;">
+  <ul class="w3-bar-item" style="padding-left:16px;">
+   <!--<span class="pro w3-theme-d4" style="padding-left:2rem;padding-right:2rem;">Free</span>-->
+    <li class="w3-bar-item"><span class="pack">java.io.</span>
+      <ul>
+        <li class="w3-bar-item w3-button" onclick="opn('io.File')">File</li>
+      </ul>
+    </li>
+    <li class="w3-bar-item"><span class="pack">java.nio.file.</span>
+      <ul>
+         <li class="w3-bar-item w3-button" onclick="opn('nio.file.Files', 'nio.Files')">Files</li>
+      </ul>
+    </li>
+    <li class="w3-bar-item"><span class="pack">java.util.</span>
+      <ul>
+        <li class="w3-bar-item w3-button" onclick="opn('util.Base64')">Base64</li>
+        <li class="w3-bar-item w3-button" onclick="opn('util.Base64.Decoder')">Base64.Decoder</li>
+        <li class="w3-bar-item w3-button" onclick="opn('util.Base64.Encoder')">Base64.Encoder</li>
+        <li class="w3-bar-item w3-button" onclick="opn('util.UUID')">UUID</li>
+        <li class="w3-bar-item"><span class="pack">zip.</span>
+          <ul>
+           <li class="w3-bar-item w3-button" onclick="opn('util.zip.ZipFile')">ZipFile</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+<br><br><br>
+  <!--<span class="pro w3-theme-d4" style="padding-left:2rem;padding-right:2rem;">Pro</span>
+   <li class="w3-bar-item"><span class="pack">javax.swing.</span> </li>
+   <li class="w3-bar-item"><span class="pack">javafx.</span> </li>
+  </ul>-->
+</div>
+
+<div style="margin-left:20%;">
+   <div class="w3-container w3-theme-l2" style="padding-top:2rem;min-height:100vh;">
+     <div class="w3-row w3-padding-32">
+       <div class="w3-twothird">
+        <div class="w3-container">
+            <div id="start" class="city">
+                <h2>Welcome!</h2>
+                <div style="padding-left:2rem;">
+                    Welcome to the J2V class library Javadoc. The Sidebar to the left provides links to view supported classes &amp; methods currently implemented.
+                </div><br>
+                <h2>Example Structure:</h2>
+                <div style="margin-left:2rem;border:1px solid #264067;padding:1rem;border-radius:1rem">
+                    <h3 style="padding-top:0;max-width:30rem;">String myFunctionJavaName()</h3>
+                    <div class="w3-cod w3-theme">Description</div><br><br>
+                </div>
+                <p>&nbsp;</p>
+                <p>Theme:</p>
+                <button onclick="deftheme('-white')" class="w3-button" style="background-color:rgb(200,200,200);color:black">Light</button>
+                <button onclick="themechange('black')" class="w3-black w3-button">Dark</button>
+            </div>
+
+            <div id="io.File" class="city" style="display:none">
+              <p>
+                <h3>pathSeparator</h3>
+                <div class="w3-cod w3-theme">Constant for ';'</div><br>
+                <h3>separator</h3>
+                <div class="w3-cod w3-theme">Constant for '/'</div><br>
+
+                <h3 title="pub fn get_name() string">String getName()</h3>
+                <div class="w3-cod w3-theme">Return the File's name. Ex: "data.txt"</div><br><br>
+
+                <h3 style="pub fn to_path() io.File">File* toPath()</h3>
+                <div class="w3-cod w3-theme">Note: Return type currently differs from standard JRE</div><br><br>
+
+                <h3>String[] list()</h3>
+                <div class="w3-cod w3-theme">Returns an array of strings of the names of the files and directories in the directory denoted by this abstract pathname.</div><br><br>
+
+                <h3>File[] listFiles()</h3>
+                <div class="w3-cod w3-theme">Returns an array of Files of the files and directories in the directory denoted by this abstract pathname.</div><br><br>
+
+                <h3>String getParent()</h3>
+                <div class="w3-cod w3-theme">Return the path of the parent file.</div><br><br>
+
+              </p>
+            </div>
+            <div id="nio.file.Files" class="city" style="display:none">
+              <p>
+                <h3>static List readAllLines(File file)</h3>
+                <div class="w3-cod w3-theme">Return the File's contents</div><br><br>
+
+                <h3>static void write(File file, byte[] bytes)</h3>
+                <div class="w3-cod w3-theme">Write the bytes to a file.</div><br><br>
+
+                <h3>static void copy(File from, File to)</h3>
+                <div class="w3-cod w3-theme">Create a copy of file A at path of file B</div><br><br>
+              </p>
+            </div>
+            
+            <div id="v.ui" class="city" style="display:none">
+              <p>
+                <h3>window(int width, int height, String title)</h3>
+                <div class="w3-cod w3-theme">Todo</div><br><br>
+              </p>
+            </div>
+
+            <div id="util.zip.ZipFile" class="city" style="display:none">
+              <p>
+                <h3>new ZipFile(File file)</h3>
+                <div class="w3-cod w3-theme">New instance of ZipFile</div><br><br>
+              </p>
+            </div>
+
+            <div id="util.Base64" class="city" style="display:none">
+              <p>
+                <h3>Base64.Encoder getEncoder()</h3>
+                <div class="w3-cod w3-theme">Get instance of Base64.Encoder</div><br><br>
+
+                <h3>Base64.Decoder getDecoder()</h3>
+                <div class="w3-cod w3-theme">Get instance of Base64.Decoder</div><br><br>
+              </p>
+            </div>
+
+            <div id="util.Base64.Decoder" class="city" style="display:none">
+              <p>
+                <h3>byte[] decode(byte[] src)</h3>
+                <div class="w3-cod w3-theme">Decode the provided Base64 byte array</div><br><br>
+              </p>
+            </div>
+
+            <div id="util.Base64.Encoder" class="city" style="display:none">
+              <p>
+                <h3>byte[] encode(byte[] src)</h3>
+                <div class="w3-cod w3-theme">Encode the provided byte array into Base64</div><br><br>
+              </p>
+            </div>
+
+            <div id="util.UUID" class="city" style="display:none">
+              <p>
+                <h3 title="pub fn random_uuid() UUID">UUID randomUUID()</h3>
+                <div class="w3-cod w3-theme">Generate a new random UUID version 4</div><br><br>
+              </p>
+            </div>
+
+        </div>
+       </div>
+       <div class="w3-rest">
+        <div class="w3-container">
+        </div>
+       </div>
+     </div>
+   </div>
+
+</div>
+  <!-- Footer -->
+  <div class="w3-theme w3-center" style="position:fixed;bottom:0;z-index:100;padding:4px;width:20%;font-size:.7rem;">Copyright &copy; MMXXI by Isaiah.</div>
+</body>
+
+
+<script>
+function opn(path, jcl) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i=0;i<x.length;i++){ x[i].style.display="none"; }
+  document.getElementById(path).style.display="block";  
+  if (undefined == jcl){ jcl = path; }
+
+  document.getElementById("clz").innerHTML = "";
+  if (path == 'start') return;
+  var txt = ("java." + path).split(".");
+  for (i=0; i<txt.length;i++) {
+    document.getElementById("clz").innerHTML += "<span class='w3-bar-item'><span class='clzz'>" + txt[i] + "</span>" + (i == txt.length - 1 ? "" : "<i class='arrow right'></i></span>");
+  }
+  document.getElementById("clz").innerHTML += "&nbsp;<span class='w3-bar-item w3-hide-small small' style='float:right;'>(jcl." + jcl + ")</span>";
+}
+
+function themechange(a) {
+    document.getElementById("themecss").href = "https://www.w3schools.com/lib/w3-theme-"+a+".css";
+}
+function deftheme(a) {
+ document.getElementById("themecss").href = "./theme"+a+".css";
+}
+</script>
+
+</html>

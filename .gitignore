@@ -27,6 +27,8 @@ hs_err_pid*
 data.txt
 /*.v
 .settings/
+/com/
+/me/
 
 
 # 
