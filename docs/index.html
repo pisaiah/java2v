@@ -46,7 +46,7 @@ ul {padding-left:1.8rem}
 </div>
 
 <!--Sidebar-->
-<div class="w3-sidebar w3-light-grey w3-bar-block w3-theme-l1" style="width:20%;min-width:11rem;padding-top:3rem;">
+<div class="w3-sidebar w3-light-grey w3-bar-block w3-theme" style="width:20%;min-width:11rem;padding-top:3rem;">
   <ul class="w3-bar-item" style="padding-left:16px;">
    <!--<span class="pro w3-theme-d4" style="padding-left:2rem;padding-right:2rem;">Free</span>-->
     <li class="w3-bar-item"><span class="pack">java.io.</span>
@@ -80,7 +80,7 @@ ul {padding-left:1.8rem}
 </div>
 
 <div style="margin-left:20%;">
-   <div class="w3-container w3-theme-l2" style="padding-top:2rem;min-height:100vh;">
+   <div class="w3-container w3-theme-l1" style="padding-top:2rem;min-height:100vh;">
      <div class="w3-row w3-padding-32">
        <div class="w3-twothird">
         <div class="w3-container">
@@ -121,6 +121,18 @@ ul {padding-left:1.8rem}
 
                 <h3>String getParent()</h3>
                 <div class="w3-cod w3-theme">Return the path of the parent file.</div><br><br>
+
+                <h3>String getPath()</h3>
+                <div class="w3-cod w3-theme">Return the path of this File.</div><br><br>
+
+                <h3>String getAbsolutePath()</h3>
+                <div class="w3-cod w3-theme">Return the absolute path of this File.</div><br><br>
+
+                <h3>boolean isDirectory()</h3>
+                <div class="w3-cod w3-theme">Indicates whether the File is a directory or not.</div><br><br>
+
+                <h3>boolean mkdir()</h3>
+                <div class="w3-cod w3-theme">Creates a new directory at the path denoted by this File. Returns success</div><br><br>
 
               </p>
             </div>
@@ -190,12 +202,10 @@ ul {padding-left:1.8rem}
        </div>
      </div>
    </div>
-
 </div>
   <!-- Footer -->
   <div class="w3-theme w3-center" style="position:fixed;bottom:0;z-index:100;padding:4px;width:20%;font-size:.7rem;">Copyright &copy; MMXXI by Isaiah.</div>
 </body>
-
 
 <script>
 function opn(path, jcl) {
@@ -213,7 +223,6 @@ function opn(path, jcl) {
   }
   document.getElementById("clz").innerHTML += "&nbsp;<span class='w3-bar-item w3-hide-small small' style='float:right;'>(jcl." + jcl + ")</span>";
 }
-
 function themechange(a) {
     document.getElementById("themecss").href = "https://www.w3schools.com/lib/w3-theme-"+a+".css";
 }
