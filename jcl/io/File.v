@@ -82,6 +82,8 @@ pub fn (f File) is_directory() bool {
 }
 
 /**
+ * Creates a new empty directory at
+ * the path denoted by this File.
  */
 pub fn (f File) mkdir() bool {
 	os.mkdir_all(f.get_path()) or { println('error') println(err) }
@@ -89,6 +91,8 @@ pub fn (f File) mkdir() bool {
 }
 
 /**
+ * Delete the file or directory denoted
+ * by this instance of instance File.
  */
 pub fn (f File) delete() bool {
 	if f.is_directory() {

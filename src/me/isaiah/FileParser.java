@@ -32,6 +32,10 @@ public class FileParser {
                 if (ll.contains("//" + " J2V ON")) {
                     ppause = false;
                 }
+                if (ll.endsWith("// JAVA ONLY")) {
+                    lc++;
+                    continue;
+                }
                 if (ll.contains("//" + " V") || ppause || ll.contains("//" + " J2V ON")) { 
                     if (ll.contains("//" + " V")) {
                         ll = ll.replace("//" + " V ", "").replace("    ", "\t");
@@ -99,11 +103,12 @@ public class FileParser {
 
                     if (ll.startsWith("public class")) {
                         fnn = ll.split(" ")[2];
-                        ll = "// " + ll.split(" ")[2] + ".v";
+                        ll = "// " + ll.split(" ")[2] + ".v ";
+                        //ll = "// " + ll.split(" ")[2] + ".v\nstruct " + fnn.toLowerCase() + " {\n}";
                     }
                     ll = ll.replaceFirst("    ", "");
 
-                    if (ll.startsWith("public static void main(String["+"] args)")) {
+                    if (ll.trim().startsWith("public static void main(String["+"] args)")) {
                         String method_name = "pub fn " + fnn.toLowerCase() + "_main()";
 
                         ll = ll.replace("public static void main(String[] args)", method_name) + "\n\tmut args := []string{}\n"
@@ -230,7 +235,7 @@ public class FileParser {
             pkg = pkg.replace("module ", "").replace('.', '/');
 
             String[] pll = pkg.replace(";", "").split("/");
-            String ful = new File("").getAbsolutePath();
+            String ful = new File(".").getAbsolutePath();
             String nful = "";
             for (String strr : pll) {
                 ful = ful + "/" + strr;
@@ -242,7 +247,7 @@ public class FileParser {
             File o_f = new File(ful + "/" + fnn + ".v");
             Files.write(o_f.toPath(), cls.getBytes());
 
-            System.out.println("Transpiled to: " + nful + "/" + fnn + ".v");
+            System.out.println("Transpiled to: " + o_f.getAbsolutePath() + "/" + fnn + ".v");
         } else {
             for (File fi : f.listFiles()) {
                 do_file(fi);

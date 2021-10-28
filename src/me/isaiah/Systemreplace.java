@@ -5,7 +5,7 @@ public class Systemreplace {
     public static String system_repl(String inp) {
         String ll = inp;
         String t = ll.trim();
-        ll = ll.replace("Systemreplace.", "");
+        ll = ll.replace("Systemreplace"+".", "");
 
         if (t.contains("S" + "ystem.out.print")) {
             ll = ll.replace("S" + "ystem.out.print", "print").replace(";", "");

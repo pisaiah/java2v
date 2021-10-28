@@ -14,11 +14,9 @@ public class Java2V {
 
         boolean debug = false;
         String backend = "c";
-        // J2V OFF
-        debug = true;
-        // J2V ON
+        debug = true; // JAVA ONLY
 
-        String file_name = "src/me/isaiah/"; // Test
+        String file_name = "src/"; // Test
         String main_class = "me/isaiah/Java2V.java";
 
         if (args.length <= 1 && !debug) {
@@ -44,9 +42,7 @@ public class Java2V {
         File mc = new File(main_class.replace(".java", ".v"));
 
         for (File f : fi.listFiles()) {
-            // J2V OFF
-            FileParser.do_file(f);
-            // J2V ON
+            FileParser.do_file(f); // JAVA ONLY
             // V do_file(f)
         }
         System.out.println("Transpiled files from Java to V complete.\n");
@@ -69,11 +65,9 @@ public class Java2V {
         Files.write(bootstrap.toPath(), cont.getBytes());
 
         System.out.println("Compiling V files with " + backend.toUpperCase() + " backend...");
-        System.out.println("Running \"v.exe -b " + backend + " " + bootstrap.getName() + "\" ... ");
+        System.out.println("Running \"v.exe -b " + backend + " " + bootstrap.getName() + "\" ...\n");
 
-        // J2V OFF
-        Runnner.run_v(bootstrap,false,backend);
-        // J2V ON
+        Runnner.run_v(bootstrap,false,backend); // JAVA ONLY
 
         // V comp(bootstrap.get_name(), backend) or { println(err) }
         bootstrap.delete();

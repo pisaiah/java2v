@@ -11,7 +11,7 @@ public class Snakecase {
     public static String to_snake(String inp) {
         String ll = inp;
 
-        ll = ll.replace("Snakecase.", "");
+        ll = ll.replace("S"+"nakecase.", "");
         ll = ll.replace("get"+"Bytes()", "bytes()");
 
         if (ll.contains("getDecoder"+"()")) {

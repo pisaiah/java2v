@@ -11,11 +11,15 @@ public class FunctionParser {
     public static String parse_function(String inp) {
         String ll = inp;
 
-        ll = ll.replace("FunctionParser.", "");
+        ll = ll.replace("FunctionParser"+".", "");
         String t = ll.trim();
 
+        //if (t.startsWith("public " + class_name + "(")) {
+        //    ll = ll.replace("public " + class_name, "pub fn " + class_name.toLowerCase());
+        //}
+
         if (t.startsWith("public void")) {
-            ll = ll.replace("public VOID".toLowerCase(), "fn");
+            ll = ll.replace("public VOID".toLowerCase(), "pub fn");
             if (ll.contains("(")) {
                 String lh = ll.replace('(', '\n').replace(')', '\n').split("\n")[1];
                 String nh = "";
@@ -35,12 +39,13 @@ public class FunctionParser {
                     ll = ll.replace(lh, nh);
                 }
             }
+            //ll = ll.replace("pub fn", "pub fn (this " + class_name.toLowerCase() + ")");
         }
 
         if (t.startsWith("public static void") || t.startsWith("public static String") || t.startsWith("public static boolean")) {
-            ll = ll.replace("public static VOID".toLowerCase(), "fn");
+            ll = ll.replace("public static VOID".toLowerCase(), "pub fn");
             if (ll.startsWith("public static String")) {
-                ll = ll.replace("public static String", "fn").replace(" {", " string {");
+                ll = ll.replace("public static String", "pub fn").replace(" {", " string {");
             }
             ll = ll.replace("public static boolean".toLowerCase(), "fn");
             if (ll.contains("(")) {
