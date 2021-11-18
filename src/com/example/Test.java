@@ -55,7 +55,6 @@ public class Test {
         System.out.println( "User home: " + System.getProperty("user.home") );
         
         UUID rand_uuid = UUID.randomUUID();
-        System.out.println("UUID: " + rand_uuid.toString());
     }
 
     // @Deprecated

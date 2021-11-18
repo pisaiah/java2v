@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+import jcl.util.StringLastIndexOf;
+
 public class FileParser {
 
     public static void do_file(File f) throws IOException {
@@ -85,7 +87,15 @@ public class FileParser {
                         if (ll.startsWith("import java.")) {
                             ll = "";
                         } else {
-                            imports.add(ll);
+                            if (!ll.toLowerCase().equals(ll)) { // JAVA ONLY
+                            // V if !(ll.to_lower() == ll) {
+                                String lll = ll.substring(0, StringLastIndexOf.last_index_of(ll, "."));
+                                System.out.println(lll);
+                                ll = lll;
+                                imports.add(lll);
+                            } else {
+                                imports.add(ll);
+                            }
                         }
                     }
 
@@ -103,8 +113,8 @@ public class FileParser {
 
                     if (ll.startsWith("public class")) {
                         fnn = ll.split(" ")[2];
-                        ll = "// " + ll.split(" ")[2] + ".v ";
-                        //ll = "// " + ll.split(" ")[2] + ".v\nstruct " + fnn.toLowerCase() + " {\n}";
+                        //ll = "// " + ll.split(" ")[2] + ".v ";
+                        ll = "// " + ll.split(" ")[2] + ".v\nstruct " + fnn + " {\n}";
                     }
                     ll = ll.replaceFirst("    ", "");
 
@@ -176,8 +186,8 @@ public class FileParser {
                     }
 
                     for (String s : arr) {
-                        if (t.contains(s.toString() + ".add(")) {
-                            ll = ll.replace(s.toString() + ".add(", s.toString() + " << (");
+                        if (t.contains(s + ".add(")) {
+                            ll = ll.replace(s + ".add(", s + " << (");
                         }
                     }
 
@@ -185,7 +195,7 @@ public class FileParser {
                     ll = ll.replace(".Length".toLowerCase(), ".len");
                     ll = ll.replace("@D" + "eprecated", "[deprecated]");
                     
-                    ll = FunctionParser.parse_function(ll);
+                    ll = FunctionParser.parse_function(fnn, ll);
 
                     if (t.startsWith("List<")) {
                         String st = t.split(" ")[0];
@@ -194,6 +204,12 @@ public class FileParser {
                         arr.add(name);
                     }
 
+                    if (ll.contains(" A" + "rrayList<>()")) {
+                        String name = t.split(" ")[1];
+                        arr.add(name);
+                        ll = ll.replace("A" + "rrayList<>()", "[]string{}");
+                    }
+                    
                     if (ll.contains(" a" + "rraylist<>()")) {
                         String name = t.split(" ")[1];
                         arr.add(name);
@@ -235,7 +251,8 @@ public class FileParser {
             pkg = pkg.replace("module ", "").replace('.', '/');
 
             String[] pll = pkg.replace(";", "").split("/");
-            String ful = new File(".").getAbsolutePath();
+            File ful_file = new File(".");
+            String ful = ful_file.getAbsolutePath();
             String nful = "";
             for (String strr : pll) {
                 ful = ful + "/" + strr;

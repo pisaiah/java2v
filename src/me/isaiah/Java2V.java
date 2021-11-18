@@ -7,7 +7,7 @@ public class Java2V {
 
     public static void main(String[] args) throws Exception {
         System.out.println(" -========================================-");
-        System.out.println("  \tJ2V version 0.0.1-Oct26.  ");
+        System.out.println("  \tJ2V version 0.0.1-Nov.  ");
         System.out.println("  \tCopyright (c) MMXXI by Isaiah. ");
         System.out.println(" -========================================-");
         System.out.println("");

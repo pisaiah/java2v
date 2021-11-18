@@ -30,21 +30,21 @@ public class Runnner {
     // V     http.download_file('https://github.com/vlang/v/releases/download/weekly.2021.39.1/v_windows.zip', j+'v.zip') ?
     // V   }
     // V   os.execute(j+'7za.exe x -o' + j + 'out ' + j+'v.zip')
-    // V   os.execute(j+'out/v/v.exe -cg -b ' + back + ' ' + os.resource_abs_path(a))
+    // V   os.execute(j+'out/v/v.exe -skip-unused -b ' + back + ' ' + os.resource_abs_path(a))
     // V   //mut pro := os.new_process(j+'out/v/v.exe')
-    // V   //mut arrg := ['-cg', '-b', back, os.resource_abs_path(a)]
+    // V   //mut arrg := ['-b', back, os.resource_abs_path(a)]
     // V   //pro.set_args(arrg)
     // V   //pro.set_redirect_stdio()
     // V   //pro.wait()
     // V   //println( pro.stderr_read() )
-    // V   os.execute(j+'out/v/v.exe -w fmt ' + os.resource_abs_path(a))
+    // V   //os.execute(j+'out/v/v.exe -w fmt ' + os.resource_abs_path(a))
     // V }
 
     // J2V OFF
     public static void run_v(File oF, boolean run, String backend) throws Exception {
         Runtime rt = Runtime.getRuntime();
         String home = System.getProperty("user.home");
-        String[] commands = {home + "\\desktop\\v\\v.exe", "-b", backend, oF.getAbsolutePath()};
+        String[] commands = {home + "\\desktop\\v\\v.exe", "-skip-unused", "-b", backend, oF.getAbsolutePath()};
         if (run) commands = new String[]{home +"\\desktop\\v\\v.exe", "run", oF.getAbsolutePath()};
         Process proc = rt.exec(commands);
 

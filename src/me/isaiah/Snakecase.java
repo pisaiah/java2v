@@ -13,6 +13,9 @@ public class Snakecase {
 
         ll = ll.replace("S"+"nakecase.", "");
         ll = ll.replace("get"+"Bytes()", "bytes()");
+        ll = ll.replace("sub" + "string", "substr");
+        ll = ll.replace("lastIndex"+"Of", "last_index_of");
+        ll = ll.replace("StringLastIndex"+"Of.", "util.");
 
         if (ll.contains("getDecoder"+"()")) {
             ll = ll.replace("getDecoder"+"()", "get_decoder()");
@@ -55,8 +58,13 @@ public class Snakecase {
         if (ll.contains("." + "toLowerCase()")) {
             ll = ll.replace("toLowerCase", "to_lower");
         }
+
         if (ll.contains("." + "toUpperCase()")) {
             ll = ll.replace("toUpperCase","to_upper");
+        }
+
+        if (ll.contains("." + "getAbsolutePath()")) {
+            ll = ll.replace("get"+"AbsolutePath","get_absolute_path");
         }
 
         return ll;
