@@ -5,11 +5,11 @@ import jcl.io
 pub const open_read = 0
 
 struct ZipFile {
-    file io.File
+	file io.File
 }
 
 pub fn zipfile(file io.File) ZipFile {
-    return ZipFile{
-        file: file
-    }
+	return ZipFile{
+		file: file
+	}
 }
